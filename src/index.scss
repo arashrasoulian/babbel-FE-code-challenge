@@ -1,0 +1,90 @@
+@use "sass:map";
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+$box-colors:(
+  "success": #28a745,
+  "background": #f3f6f2,
+  "border": rgb(0, 0, 0),
+);
+
+
+@mixin for-size($size) {
+  @if $size == phone-only {
+    @media (max-width: 599px) { @content; }
+  }  @else if $size == tablet-landscape-up {
+    @media (max-width: 950px) { @content; }
+  } 
+}
+.title{
+  font-size: 100px;
+  @include for-size(phone-only){
+    font-size: 60px;
+    margin-bottom: 80px;
+  }
+
+
+}
+.score_to_win{
+  margin-top: -50px;
+  font-size: 30px;
+
+}
+.all-boxes{
+  justify-content: center;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 200px;
+  padding-right: 200px;
+  margin-top: 70px;
+  @include for-size(phone-only) {    
+    flex-direction: column;
+    align-items: center;
+ }
+}
+.box{
+  width: 220px;
+  height: 350px;
+  border : 3px solid map.get($box-colors, "border");
+  text-align: center;
+  margin: 20px auto;
+  margin: 5px;
+  @include for-size(tablet-landscape-up){
+    width: 138px;
+  }
+  @include for-size(phone-only){
+    width: 220px;
+  }
+  
+ }
+
+.playername{
+  font-size: 30px;
+  margin-top: 4px;
+}
+.avatar{
+  margin-top: -4px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 2px solid map.get($box-colors, "border");
+}
+
+button{
+  margin-top: 10px;
+font-size: 20px;
+padding:10px 40px;
+background-color: map.get($box-colors, "background");
+}
+.winner{
+  margin-left: 35%;
+  margin-top: 10px;
+  font-size: 30px;
+  color: map.get($box-colors, "success");
+}
