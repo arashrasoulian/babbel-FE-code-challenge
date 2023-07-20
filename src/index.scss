@@ -83,7 +83,7 @@ padding:10px 40px;
 background-color: map.get($box-colors, "background");
 }
 .winner{
-  margin-left: 35%;
+  margin-left: auto;
   margin-top: 10px;
   font-size: 30px;
   color: map.get($box-colors, "success");
